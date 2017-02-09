@@ -32,7 +32,13 @@ namespace PractiseMakesPerfect01 {
 
 		// Ex D
 		public int GetRemainder(int Number, int Divisor) {
-			int Remainder = Number;
+			double Remainder = Number; 
+
+			while(Remainder > 0) { // As long as remainder is Greater than 0 (not eqal). When not, return Remainder * Divisor to "undo" the last division"
+				Remainder = Remainder / Divisor;
+			}
+
+			return (int)Remainder * Divisor;
 		}
 
 	}
