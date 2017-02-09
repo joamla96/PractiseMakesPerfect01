@@ -35,37 +35,16 @@ namespace PractiseMakesPerfect01 {
 			if (Divisor == 0) {
 				throw new DivideByZeroException(); // Would very likely have been thrown automatically, but yeah....
 			}
-
-			return Number - (this.divide(Number, Divisor)) * Divisor;
-		}
-
-		// Used for E...
-		private int divide(int nu, int de) { // Thanks Stackoverflow: http://stackoverflow.com/questions/21074682/dividing-a-number-without-using-division-operator-in-c
-
-			int temp = 1;
-			int quotient = 0;
-
-			while (de <= nu) {
-				de <<= 1;
-				temp <<= 1;
+			int Remainder = Number;
+			while(Remainder > Divisor) {
+				Remainder = Remainder - Divisor;
 			}
 
-			//printf("%d %d\n",de,temp,nu);
-			while (temp > 1) {
-				de >>= 1;
-				temp >>= 1;
-
-				if (nu >= de) {
-					nu -= de;
-					//printf("%d %d\n",quotient,temp);
-					quotient += temp;
-				}
-			}
-
-			return quotient;
+			return Remainder;
 		}
 
-		// F
+
+		// Ex F
 		public int CountCharsInString(char Char, string String) {
 			int Counter = 0;
 			foreach(Char A in String) {
@@ -74,7 +53,6 @@ namespace PractiseMakesPerfect01 {
 
 			return Counter;
 		}
-
 
 	}
 }

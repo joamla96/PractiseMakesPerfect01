@@ -25,12 +25,15 @@ namespace UserInterface.CLI {
 			Console.WriteLine("1. Biggest Int");
 			Console.WriteLine("2. Biggest Letter");
 			Console.WriteLine("3. Modulo");
+			Console.WriteLine("4. Guess The Number");
 
-			Console.WriteLine("\n 0. Exit");
+			Console.WriteLine("\n0. Exit");
 		}
 
 		private void ActMenu() {
-			switch(GetInput("number")) {
+			string Input = GetInput("number");
+			Console.Clear();
+			switch(Input) {
 				case "0":
 					this.running = false;
 					break;
@@ -43,6 +46,28 @@ namespace UserInterface.CLI {
 
 					Console.WriteLine("Actual Mod: " + Number % Divisor);
 					Console.WriteLine("My Mod: " + Tool.GetRemainder(Number, Divisor));
+					break;
+
+				case "4":
+					GuessTheNumber GTN = new GuessTheNumber();
+					bool InGame = true;
+					while(GTN.Guesses <= GTN.MaxGuess && InGame) {
+						Console.WriteLine("\nGuess a number: ");
+						int Guess = int.Parse(GetInput());
+
+						int Result = GTN.Guess(Guess);
+						if(Result == 0) {
+							InGame = false;
+							Console.WriteLine("You gussed right!");
+						} else if(Result < 0) {
+							Console.WriteLine("Your guess was too low");
+						} else if(Result > 0) {
+							Console.WriteLine("Your guess was too high");
+						}
+					}
+
+					Console.WriteLine("\nGame Over!");
+					Console.ReadKey();
 					break;
 
 				default:
