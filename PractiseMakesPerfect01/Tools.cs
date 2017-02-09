@@ -26,8 +26,13 @@ namespace PractiseMakesPerfect01 {
 		}
 
 		// Ex C
-		public int GetBiggerLetter(char a, char b) {
-			return (char)GetBiggerInt((int)a, (int)b);
+		public int GetBiggerLetter(char a, char b) { // Chars convert easily to ints, and vise versa.
+			return (char)GetBiggerInt((int)a, (int)b); // Lets just use the one we made already :)
+		}
+
+		// Ex D
+		public int GetRemainder(int Number, int Divisor) {
+			int Remainder = Number;
 		}
 
 	}
