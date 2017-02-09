@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PractiseMakesPerfect01 {
-	class Tools {
+	public class Tools {
 
 		// Ex A
 		public int GetBiggerInt(int a, int b) {
@@ -16,9 +16,9 @@ namespace PractiseMakesPerfect01 {
 
 		// Ex B
 		public int GetBiggerInt(int a, int b, int c) {
-			if(a > b && a > c) { // IF a is bigger than B and bigger than C
+			if (a > b && a > c) { // IF a is bigger than B and bigger than C
 				return a;
-			} else if(b > a && b > c) { // IF B is bigger than A and bigger than C
+			} else if (b > a && b > c) { // IF B is bigger than A and bigger than C
 				return b;
 			} else { // Neither A nor B was bigger than C, so theyre either all equal or C is the biggest.
 				return c;
@@ -30,14 +30,41 @@ namespace PractiseMakesPerfect01 {
 			return (char)GetBiggerInt((int)a, (int)b); // Lets just use the one we made already :)
 		}
 
-		// Ex D
+		// Ex D & E
 		public int GetRemainder(int Number, int Divisor) {
-			if(Divisor == 0) {
-				throw new DivideByZeroException(); // Would have been thrown automatically, but yeah....
+			if (Divisor == 0) {
+				throw new DivideByZeroException(); // Would very likely have been thrown automatically, but yeah....
 			}
 
-			return Number - (Number / Divisor) * Divisor;
+			return Number - (this.divide(Number, Divisor)) * Divisor;
 		}
+
+		// Used for E...
+		private int divide(int nu, int de) {
+
+			int temp = 1;
+			int quotient = 0;
+
+			while (de <= nu) {
+				de <<= 1;
+				temp <<= 1;
+			}
+
+			//printf("%d %d\n",de,temp,nu);
+			while (temp > 1) {
+				de >>= 1;
+				temp >>= 1;
+
+				if (nu >= de) {
+					nu -= de;
+					//printf("%d %d\n",quotient,temp);
+					quotient += temp;
+				}
+			}
+
+			return quotient;
+		}
+
 
 	}
 }
