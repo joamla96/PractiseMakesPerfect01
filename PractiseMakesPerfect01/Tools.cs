@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace PractiseMakesPerfect01 {
 	public class Tools {
@@ -52,6 +49,23 @@ namespace PractiseMakesPerfect01 {
 			}
 
 			return Counter;
+		}
+
+		// Ex G - See GuessTheNumber
+
+		// Ex H
+		public string EnglishOnly(string Input) {
+			Regex Regex = new Regex(@"^[a-zA-Z]+");
+			Match match = Regex.Match(Input);
+
+			string Result = "";
+			if(match.Success) {
+				Result = match.ToString();
+			} else {
+				throw new Exception("No Match");
+			}
+
+			return Result;
 		}
 
 	}

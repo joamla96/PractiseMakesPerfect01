@@ -26,6 +26,7 @@ namespace UserInterface.CLI {
 			Console.WriteLine("2. Biggest Letter");
 			Console.WriteLine("3. Modulo");
 			Console.WriteLine("4. Guess The Number");
+			Console.WriteLine("5. English Letters Only");
 
 			Console.WriteLine("\n0. Exit");
 		}
@@ -37,6 +38,22 @@ namespace UserInterface.CLI {
 				case "0":
 					this.running = false;
 					break;
+
+				case "1":
+					Console.Clear();
+
+					Console.WriteLine("Write your first Number: ");
+					int FirstNumber = int.Parse(GetInput("number"));
+
+					Console.WriteLine("\nWrite your first Number: ");
+					int SecondNumber = int.Prase(GetInput("number"));
+
+					int Bigger = Tool.GetBiggerInt(FirstNumber, SecondNumber);
+					Console.WriteLine(Bigger + " is the bigger number :)");
+
+					Console.ReadKey();
+					break;
+				
 				case "3":
 					Console.WriteLine("Number: ");
 					int Number = int.Parse(GetInput("number"));
@@ -70,12 +87,29 @@ namespace UserInterface.CLI {
 					Console.ReadKey();
 					break;
 
+				case "5":
+					Console.Clear();
+
+					Console.WriteLine("Type your string: ");
+
+					try {
+						Console.WriteLine(
+								Tool.EnglishOnly(
+									Console.ReadLine()
+						));
+					} catch(Exception e) {
+						Console.WriteLine(e.Message);
+						Console.ReadLine();
+					}
+
+
+					break;
+
 				default:
 					Console.WriteLine("Could not find menu action...");
 					break;
 			}
 
-			Console.ReadKey();
 		}
 
 		private string GetInput(string Type = "", string error = "") {
