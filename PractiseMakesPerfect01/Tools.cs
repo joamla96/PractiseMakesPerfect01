@@ -40,7 +40,7 @@ namespace PractiseMakesPerfect01 {
 		}
 
 		// Used for E...
-		private int divide(int nu, int de) {
+		private int divide(int nu, int de) { // Thanks Stackoverflow: http://stackoverflow.com/questions/21074682/dividing-a-number-without-using-division-operator-in-c
 
 			int temp = 1;
 			int quotient = 0;
@@ -63,6 +63,16 @@ namespace PractiseMakesPerfect01 {
 			}
 
 			return quotient;
+		}
+
+		// F
+		public int CountCharsInString(char Char, string String) {
+			int Counter = 0;
+			foreach(Char A in String) {
+				if (A == Char) Counter++;
+			}
+
+			return Counter;
 		}
 
 
