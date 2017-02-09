@@ -46,7 +46,7 @@ namespace UserInterface.CLI {
 					int FirstNumber = int.Parse(GetInput("number"));
 
 					Console.WriteLine("\nWrite your first Number: ");
-					int SecondNumber = int.Prase(GetInput("number"));
+					int SecondNumber = int.Parse(GetInput("number"));
 
 					int Bigger = Tool.GetBiggerInt(FirstNumber, SecondNumber);
 					Console.WriteLine(Bigger + " is the bigger number :)");
