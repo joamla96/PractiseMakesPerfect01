@@ -36,13 +36,7 @@ namespace PractiseMakesPerfect01 {
 				throw new DivideByZeroException(); // Would have been thrown automatically, but yeah....
 			}
 
-			double Remainder = Number; 
-
-			while(Remainder > 0) { // As long as remainder is Greater than 0 (not eqal). When not, return Remainder * Divisor to "undo" the last division"
-				Remainder = Remainder / Divisor;
-			}
-
-			return (int)Remainder * Divisor;
+			return Number - (Number / Divisor) * Divisor;
 		}
 
 	}
