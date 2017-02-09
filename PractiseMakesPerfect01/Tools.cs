@@ -32,6 +32,10 @@ namespace PractiseMakesPerfect01 {
 
 		// Ex D
 		public int GetRemainder(int Number, int Divisor) {
+			if(Divisor == 0) {
+				throw new DivideByZeroException(); // Would have been thrown automatically, but yeah....
+			}
+
 			double Remainder = Number; 
 
 			while(Remainder > 0) { // As long as remainder is Greater than 0 (not eqal). When not, return Remainder * Divisor to "undo" the last division"
